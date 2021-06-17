@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658828, g: 0.49642313, b: 0.57482547, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -715,6 +715,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81aea0127df84c26b64a8a98c672787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
   rb: {fileID: 1663898174}
   index: 10
 --- !u!114 &1663898179
@@ -733,4 +737,3 @@ MonoBehaviour:
   Agent_ball: {fileID: 1663898170}
   AgentRb: {fileID: 1663898174}
   topicName: odometry
-  publishMessageFrequency: 0.5
