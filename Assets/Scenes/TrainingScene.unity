@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 1663898171}
   - component: {fileID: 1663898179}
   - component: {fileID: 1663898178}
+  - component: {fileID: 1663898180}
   m_Layer: 0
   m_Name: RollerAgent
   m_TagString: Untagged
@@ -583,7 +584,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663898169}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f6ad27cc7cf3a7b092de2b7e4cb7989, type: 3}
   m_Name: 
@@ -736,4 +737,20 @@ MonoBehaviour:
   Target_cube: {fileID: 434250570}
   Agent_ball: {fileID: 1663898170}
   AgentRb: {fileID: 1663898174}
-  topicName: odometry
+  topicName: BallOdometry
+--- !u!114 &1663898180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663898169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f3866d3d2df4a00a6dcd6debbb4219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballRb: {fileID: 1663898174}
+  ballTf: {fileID: 1663898170}
+  cubeTf: {fileID: 434250570}
+  topicName: ResetScene

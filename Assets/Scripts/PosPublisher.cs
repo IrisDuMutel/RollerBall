@@ -13,7 +13,7 @@ public class PosPublisher : MonoBehaviour
     public Transform Agent_ball;
     public Rigidbody AgentRb;
     ROSConnection ros;
-    public string topicName = "odometry";
+    public string topicName = "BallOdometry";
 
 
     void Start()

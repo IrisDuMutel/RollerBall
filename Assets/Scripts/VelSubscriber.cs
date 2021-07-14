@@ -17,7 +17,7 @@ public class VelSubscriber : Agent
     void Start()
     {
 
-       ROSConnection.instance.Subscribe<Twist>("cmd_vel", Vel_callback);
+       ROSConnection.instance.Subscribe<Twist>("BallActions", Vel_callback);
     }
 
     void Vel_callback(Twist data)

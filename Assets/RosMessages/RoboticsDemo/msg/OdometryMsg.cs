@@ -11,19 +11,22 @@ namespace RosMessageTypes.RoboticsDemo
     {
         public const string RosMessageName = "robotics_demo/OdometryMsg";
 
+        public bool new_ep;
         public float[] cube_pos;
         public float[] ball_pos;
         public float[] ball_vel;
 
         public OdometryMsg()
         {
+            this.new_ep = false;
             this.cube_pos = new float[0];
             this.ball_pos = new float[0];
             this.ball_vel = new float[0];
         }
 
-        public OdometryMsg(float[] cube_pos, float[] ball_pos, float[] ball_vel)
+        public OdometryMsg(bool new_ep, float[] cube_pos, float[] ball_pos, float[] ball_vel)
         {
+            this.new_ep = new_ep;
             this.cube_pos = cube_pos;
             this.ball_pos = ball_pos;
             this.ball_vel = ball_vel;
@@ -31,6 +34,7 @@ namespace RosMessageTypes.RoboticsDemo
         public override List<byte[]> SerializationStatements()
         {
             var listOfSerializations = new List<byte[]>();
+            listOfSerializations.Add(BitConverter.GetBytes(this.new_ep));
             
             listOfSerializations.Add(BitConverter.GetBytes(cube_pos.Length));
             foreach(var entry in cube_pos)
@@ -49,6 +53,8 @@ namespace RosMessageTypes.RoboticsDemo
 
         public override int Deserialize(byte[] data, int offset)
         {
+            this.new_ep = BitConverter.ToBoolean(data, offset);
+            offset += 1;
             
             var cube_posArrayLength = DeserializeLength(data, offset);
             offset += 4;
@@ -83,6 +89,7 @@ namespace RosMessageTypes.RoboticsDemo
         public override string ToString()
         {
             return "OdometryMsg: " +
+            "\nnew_ep: " + new_ep.ToString() +
             "\ncube_pos: " + System.String.Join(", ", cube_pos.ToList()) +
             "\nball_pos: " + System.String.Join(", ", ball_pos.ToList()) +
             "\nball_vel: " + System.String.Join(", ", ball_vel.ToList());
